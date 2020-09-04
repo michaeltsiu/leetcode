@@ -21,15 +21,15 @@
 // The number of nodes in the tree is at most 10000.
 // The final answer is guaranteed to be less than 2^31.
 
-// var rangeSumBST = function(root, L, R) {
-//   if(root == null) {
-//       return 0
-//   }
-//   if(root.val < L) {
-//       return rangeSumBST(root.right, L, R)
-//   } else if(root.val > R) {
-//       return rangeSumBST(root.left, L, R)
-//   } else {
-//       return root.val + rangeSumBST(root.left, L, R) + rangeSumBST(root.right, L, R);
-//   }
-// };
+var rangeSumBST = function(root, L, R) {
+  if(root == null) {
+      return 0
+  }
+  if(root.val < L) {
+      return rangeSumBST(root.right, L, R)
+  } else if(root.val > R) {
+      return rangeSumBST(root.left, L, R)
+  } else {
+      return root.val + rangeSumBST(root.left, L, R) + rangeSumBST(root.right, L, R);
+  }
+};
