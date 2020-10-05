@@ -28,11 +28,20 @@
 //  * @param {number[]} nums
 //  * @return {number[]}
 //  */
+// var runningSum = function(nums) {
+//   let output = [nums[0]];
+//   for (let i = 0; i < nums.length - 1; i++) {
+//       if (i < nums.length - 1)
+//       output.push(output[i] + nums[i+1])
+//   }
+//   return output
+// };
+
 var runningSum = function(nums) {
-  let output = [nums[0]];
-  for (let i = 0; i < nums.length - 1; i++) {
-      if (i < nums.length - 1)
-      output.push(output[i] + nums[i+1])
+  let pointer = 0;
+  for (let i = 1; i < nums.length; i++) {
+      nums[i] += nums[pointer]
+      pointer++;
   }
-  return output
+  return nums;
 };
