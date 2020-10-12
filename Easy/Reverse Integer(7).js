@@ -34,22 +34,7 @@
 //  * @return {number}
 //  */
 var reverse = function(x) {
-  let positive = true;
-  if (x < 0) {
-      positive = false;
-      x = -x
-  }
-  let num = '';
-  x = x.toString()
-  for (let i = x.length - 1; i >= 0; i--) {
-      num += x[i]
-  }
-  if (Number(num) > Math.pow(2, 31)) {
-      return 0
-  }
-  if (positive) {
-      return Number(num)
-  } else {
-      return Number(-num)
-  }
+  let reversed = Math.abs(x).toString().split("").reverse().join("")
+  if (reversed > Math.pow(2, 31)) return 0
+  return reversed * Math.sign(x);
 };
