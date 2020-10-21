@@ -39,19 +39,7 @@
 //  * @return {boolean[]}
 //  */
 var kidsWithCandies = function(candies, extraCandies) {
-  let greedy = 0;
-  for (let i = 0; i < candies.length; i++) {
-      if (candies[i] > greedy) {
-          greedy = candies[i]
-      }
-  }
-  let output = [];
-  for (let i = 0; i < candies.length; i++) {
-      if (candies[i] + extraCandies >= greedy) {
-          output.push(true)
-      } else {
-          output.push(false)
-      }
-  }
+  let max = Math.max(...candies)
+  let output = candies.map((candy) => candy + extraCandies >= max)
   return output;
 };
