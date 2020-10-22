@@ -30,5 +30,20 @@
 //  * @return {number}
 //  */
 var subtractProductAndSum = function(n) {
-
+  n = n.toString().split("")
+  let sumReducer = (acc, curr) => Number(acc) + Number(curr);
+  let productReducer = (acc, curr) => acc * curr;
+  return n.reduce(productReducer) - n.reduce(sumReducer)
 };
+
+
+// var subtractProductAndSum = function(n) {
+//   let product = 1;
+//   let sum = 0;
+//   n = n.toString();
+//   for (let i = 0; i < n.length; i++) {
+//     product *= n[i];
+//     sum += Number(n[i]);
+//   }
+//   return product - sum;
+// }
