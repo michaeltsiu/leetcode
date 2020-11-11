@@ -34,16 +34,25 @@
 //  * @return {number[][]}
 //  */
 var minimumAbsDifference = function(arr) {
+  // create a variable to hold the result
   const result = [];
+  // sort the array by lowest to highest
   arr.sort((a, b) => a - b);
+  // placeholder for minimum difference
   let minDiff = Infinity;
+  // iterate over the array
   for (let i = 1; i < arr.length; i++) {
-      minDiff = Math.min(minDiff, arr[i] - arr[i - 1]);
+    // set the minimum difference to whichever is lower, current minimum difference or current index - previous index
+    minDiff = Math.min(minDiff, arr[i] - arr[i - 1]);
   }
+  // iterate over the array again
   for (let i = 1; i < arr.length; i++) {
-      if (arr[i] - arr[i-1] === minDiff) {
-          result.push([arr[i - 1], arr[i]]);
-      }
+    // if the current index of the array and previous is equal to the minimum difference
+    if (arr[i] - arr[i-1] === minDiff) {
+      // push the pair to the result
+      result.push([arr[i - 1], arr[i]]);
+    }
   }
+  // return the result
   return result;
 };
