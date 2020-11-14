@@ -38,8 +38,12 @@
 //  * @return {number}
 //  */
 var maximum69Number  = function(num) {
-    const arr = Array.from(num.toString());
-    let index = arr.findIndex(item => item === '6');
-    arr[index] = 9;
-    return arr.join('');
+  // create a variable to create an array while changing num to a string
+  const arr = Array.from(num.toString());
+  // find the index of the first item that is equal to 6
+  let index = arr.findIndex(item => item === '6');
+  // set the value of that array index to 9
+  arr[index] = 9;
+  // return the array
+  return arr.join('');
 };
