@@ -33,6 +33,10 @@
 //  * @return {string}
 //  */
 var dayOfTheWeek = function(day, month, year) {
+  // create a variable for the days of the week that will eventually be the answer
   let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+  // return the options of days
+    // the date you are looking at, .getDay returns the numbers 0-6
+    // going through the days array, the .getDay returns the index of the day
   return days[new Date(`${month}/${day}/${year}`).getDay()];
 };
