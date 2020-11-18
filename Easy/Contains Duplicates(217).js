@@ -23,13 +23,19 @@
 //  */
 
 var containsDuplicate = function(nums) {
+  // Create a variable to keep track of all the numbers
   let container = {};
+  // iterate over the nums array
   for (let i = 0; i < nums.length; i++) {
-      if (container[nums[i]]) {
-          return true;
-      } else {
-          container[nums[i]] = 1
-      }
+    // if the container contains the current nums value
+    if (container[nums[i]]) {
+      // return true because it the array contains a duplicate
+      return true;
+    } else {
+      // add the current value to the object key
+      container[nums[i]] = 1
+    }
   }
+  // return false, no duplicates
   return false;
 }
