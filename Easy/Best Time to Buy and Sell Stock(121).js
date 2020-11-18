@@ -23,20 +23,26 @@
 //  * @return {number}
 //  */
 var maxProfit = function(prices) {
-  let profit = 0;
-  let currentDay = 0;
-  let nextDay = 1
+  // Create variables to keep track of the profit, what day it currently is and the next day
+  let profit = 0, currentDay = 0, nextDay = 1
+  // while the current day isn't greater than the number of prices
   while (currentDay <= prices.length) {
-      for (let i = nextDay; i < prices.length; i++) {
-          if (prices[currentDay] < prices[i]) {
-              if (profit < (prices[i] - prices[currentDay])) {
-                  profit = prices[i] - prices[currentDay]
-              }
-          }
+    // iterate over the prices
+    for (let i = nextDay; i < prices.length; i++) {
+      // if the prices for the current day is less than the prices at the current index
+      if (prices[currentDay] < prices[i]) {
+        // if the profit is less than the prices at the current index - prices of the current day
+        if (profit < (prices[i] - prices[currentDay])) {
+          // set the profit to be equal to the prices of the current index - prices of the current day
+          profit = prices[i] - prices[currentDay]
+        }
       }
-      nextDay++;
-      currentDay++;
+    }
+    // increment next day
+    nextDay++;
+    // increment current day
+    currentDay++;
   }
-
+  // return profit
   return profit;
 };
