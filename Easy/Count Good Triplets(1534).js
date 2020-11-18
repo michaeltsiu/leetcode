@@ -40,17 +40,26 @@
 //  * @return {number}
 //  */
 var countGoodTriplets = function(arr, a, b, c) {
+  // create a variable to keep track of good triplets
   let good = 0;
+  // iterate over the array
   for (let i = 0; i < arr.length; i++) {
-      for (let j = i+1; j < arr.length; j++) {
-          for (let k = j+1; k < arr.length; k++) {
-              if ((Math.abs(arr[i] - arr[j]) <= a) &&
-                  (Math.abs(arr[j] - arr[k]) <= b) &&
-                  (Math.abs(arr[i] - arr[k]) <= c)) {
-                  good++;
-              }
-          }
+    // iterate over the array but have this an index above
+    for (let j = i+1; j < arr.length; j++) {
+      // iterate over the array, but have this an index above the other
+      for (let k = j+1; k < arr.length; k++) {
+        // if the array at i - j is less than or equal to A
+        // if the array at j - k is less than or equal to B
+        // if the array at i - k is less than or equal to C
+        if ((Math.abs(arr[i] - arr[j]) <= a) &&
+          (Math.abs(arr[j] - arr[k]) <= b) &&
+          (Math.abs(arr[i] - arr[k]) <= c)) {
+          // increment good
+          good++;
+        }
       }
+    }
   }
+  // return good
   return good;
 };
