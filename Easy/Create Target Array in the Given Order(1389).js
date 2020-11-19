@@ -52,9 +52,13 @@
 //  * @return {number[]}
 // */
 var createTargetArray = function(nums, index) {
+  // create variable with empty array to hold results
   let result = [];
+  // iterate over the nums array
   for (let i = 0; i < nums.length; i++) {
-      result.splice(index[i], 0, nums[i])
+    // splicing into result, at the current index, at the index and nums value
+    result.splice(index[i], 0, nums[i])
   }
+  // return result
   return result;
 };
