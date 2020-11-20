@@ -32,12 +32,18 @@
 //  * @return {number[]}
 //  */
 var decompressRLElist = function(nums) {
+  // create empty array variable to hold result
   let result = [];
+  // iterate over nums array incremented by 2
   for (let i = 0; i < nums.length; i+= 2) {
-      while (nums[i]) {
-          result.push(nums[i+1])
-          nums[i]--;
-      }
+    // while nums[i] isn't 0
+    while (nums[i]) {
+      // push the next nums index into result
+      result.push(nums[i+1])
+      // decrement the current index
+      nums[i]--;
+    }
   }
+  // return the results
   return result;
 };
