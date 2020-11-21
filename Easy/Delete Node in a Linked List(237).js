@@ -55,6 +55,8 @@
 //  * @return {void} Do not return anything, modify node in-place instead.
 //  */
 var deleteNode = function(node) {
+  // setting the current val of the node to the next
   node.val = node.next.val;
+  // setting the next val equal to the next next
   node.next = node.next.next;
 };
