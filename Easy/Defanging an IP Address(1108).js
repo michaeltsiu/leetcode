@@ -19,6 +19,7 @@
 //  */
 
 var defangIPaddr = function(address) {
+  // Using Regex, replace globally "."'s with [.]
   return address.replace(/\./g,"[.]")
 };
 
