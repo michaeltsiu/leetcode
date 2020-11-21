@@ -32,11 +32,16 @@
  * @return {number}
  */
 var findNumbers = function(nums) {
+  // create a variable to hold the result
   let output = 0;
+  // going through each number
   nums.forEach((i) => {
+    // if the number's length is even
     if (i.toString().length % 2 === 0) {
+      // increase the output
       output++;
     }
   })
+  // return the result
   return output;
 };
