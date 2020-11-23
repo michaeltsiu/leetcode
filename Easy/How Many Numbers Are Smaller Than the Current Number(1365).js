@@ -32,18 +32,29 @@
 // 0 <= nums[i] <= 100
 
 var smallerNumbersThanCurrent = function(nums) {
+  // create a variable to keep track of what index youre in
   let pointer = 0;
+  // create an empty array variable to hold the results
   let result = [];
+  // while the index is less than the number's length
   while (pointer < nums.length) {
-      let counter = 0;
-      for (let i = 0; i < nums.length; i++) {
-          if (nums[pointer] > nums[i]) {
-              counter++
-          }
-      }
-      result.push(counter)
-      counter = 0
-      pointer++;
+    // create a counter variable to keep track of how many numbers are smaller than the current index
+    let counter = 0;
+    // iterate over the nums array
+    for (let i = 0; i < nums.length; i++) {
+      // if the current num pointer is greater than the current index of num
+        if (nums[pointer] > nums[i]) {
+          // increase the counter
+          counter++
+        }
+    }
+    // push the counter to the result
+    result.push(counter)
+    // reset the counter
+    counter = 0
+    // increase the pointer index
+    pointer++;
   }
+  // return the result
   return result;
 };
