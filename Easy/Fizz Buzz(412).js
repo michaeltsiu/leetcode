@@ -34,12 +34,19 @@
 // //  * @return {string[]}
 // //  */
 var fizzBuzz = function(n) {
+  // create an empty array variable to hold result
   let result = [];
+  // iterate over n numbers
   for (let i = 1; i <= n; i++) {
-      if (i % 15 === 0) result.push('FizzBuzz')
-      else if (i % 3 === 0) result.push('Fizz')
-      else if (i % 5 === 0) result.push('Buzz')
-      else result.push(i.toString())
+    // if the number is divisible by 15, push FizzBuzz to the result
+    if (i % 15 === 0) result.push('FizzBuzz')
+    // if the number is divisible by 3, push Fizz to the result
+    else if (i % 3 === 0) result.push('Fizz')
+    // if the number is divisible by 5, push Buzz to the result
+    else if (i % 5 === 0) result.push('Buzz')
+    // push the number as a string into the result array
+    else result.push(i.toString())
   }
+  // return result
   return result
 };
