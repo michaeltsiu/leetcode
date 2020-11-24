@@ -23,11 +23,16 @@
 //  * @return {number}
 //  */
 var numJewelsInStones = function(J, S) {
-    let jewels = 0;
-    for (let rock of S) {
-      if (J.includes(rock)) {
-        jewels++;
-      }
+  // create a variable to keep track of the jewels
+  let jewels = 0;
+  // iterate over the stones array
+  for (let rock of S) {
+    // if rock is inside the jewels array
+    if (J.includes(rock)) {
+      // increment jewels
+      jewels++;
     }
-    return jewels
+  }
+  // return the number of jewels
+  return jewels
 };
