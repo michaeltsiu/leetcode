@@ -23,17 +23,27 @@
 //  * @return {number}
 //  */
 var islandPerimeter = function(grid) {
+  // create a variable to keep track of the perimeter
   var edges = 0;
+  // iterate through the grid rows, letting r be the current index
   grid.forEach((row, r) => {
-      row.forEach((col, c) => {
-          var left = grid[r][c-1] || 0;
-          var right = grid[r][c+1] || 0;
-          var top = (grid[r-1] || [])[c] || 0;
-          var bottom = (grid[r-1] || [])[c] || 0;
-          if (col === 1) {
-              edges += (4 - top - bottom - left - right)
-          }
-      })
+    // iterate through the grid columns, letting c be the current index
+    row.forEach((col, c) => {
+      // create variable for the left side to equal either 1 if present or 0
+      var left = grid[r][c-1] || 0;
+      // create variable for the right side to equal either 1 if present or 0
+      var right = grid[r][c+1] || 0;
+      // create variable for the top side to equal either 1 if present or 0
+      var top = (grid[r-1] || [])[c] || 0;
+      // create variable for the bottom side to equal either 1 if present or 0
+      var bottom = (grid[r-1] || [])[c] || 0;
+      // if the column exists
+      if (col === 1) {
+        // add to the perimeter all 4 sides if any
+        edges += (4 - top - bottom - left - right)
+      }
+    })
   });
+  // return the perimeter
   return edges;
 };
