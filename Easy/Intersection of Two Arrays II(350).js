@@ -27,12 +27,18 @@
 //  */
 
 var intersect = function(nums1, nums2) {
+  // create an empty array to contain all results
   let result=[];
+  // iterate over the 2nd nums array
   for(let i=0;i<nums2.length;i++){
-     if(nums1.includes(nums2[i])){
-         nums1.splice(nums1.indexOf(nums2[i]),1);
-         result.push(nums2[i]);
-     }
+    // if the 1st nums array has the current index of nums2
+    if(nums1.includes(nums2[i])){
+      // remove the included value from the 1st nums array
+      nums1.splice(nums1.indexOf(nums2[i]),1);
+      // push the current index of the 2nd nums array
+      result.push(nums2[i]);
+    }
   }
+  // return the result
   return result;
 };
