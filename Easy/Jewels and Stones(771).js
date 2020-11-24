@@ -16,3 +16,18 @@
 
 // S and J will consist of letters and have length at most 50.
 // The characters in J are distinct.
+
+// /**
+//  * @param {string} J
+//  * @param {string} S
+//  * @return {number}
+//  */
+var numJewelsInStones = function(J, S) {
+    let jewels = 0;
+    for (let rock of S) {
+      if (J.includes(rock)) {
+        jewels++;
+      }
+    }
+    return jewels
+};
