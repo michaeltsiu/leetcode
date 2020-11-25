@@ -39,7 +39,10 @@
 //  * @return {boolean[]}
 //  */
 var kidsWithCandies = function(candies, extraCandies) {
+  // create a variable to hold the max amount of candies
   let max = Math.max(...candies)
+  // create a variable to map through the candies array adding extra candies if it is not greater than the max
   let output = candies.map((candy) => candy + extraCandies >= max)
+  // return the output
   return output;
 };
