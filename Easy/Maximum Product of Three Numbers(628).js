@@ -25,7 +25,9 @@
 //  */
 
 var maximumProduct = function(nums) {
+  // sort nums array by greatest to least
   nums.sort((a, b) => b - a);
+  // return max of 1st, 2nd, 3rd multiplied or first, 2nd last, last
   return Math.max(
       nums[0] * nums[1] * nums[2],
       nums[0] * nums[nums.length - 1] * nums[nums.length - 2]
