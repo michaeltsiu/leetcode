@@ -39,14 +39,20 @@
 //  * @return {number}
 //  */
 var diagonalSum = function(mat) {
+  // create variable to keep track of sum
   let sum = 0;
+  // iterate over matrix length
   for (let i = 0; i < mat.length; i++) {
       // going diagonal left to right
+      // add all matrix row
       sum += mat[i][i];
       // going diagonal right to left
+      // if it isnt the same index
       if (mat.length - i - 1 != i) {
-          sum += mat[mat.length - i - 1][i]
+        // add the matrix value
+        sum += mat[mat.length - i - 1][i]
       }
   }
+  // return sum
   return sum;
 };
