@@ -47,20 +47,31 @@
 //  * @return {number}
 //  */
 var maxDepth = function(s) {
+  // create variable for max count
   let maxCount = 0;
+  // create variable for current count
   let currentCount = 0;
+  // iterate over the string
   for (let i = 0; i < s.length; i++) {
-      if (s[i] == '(') {
-          if (maxCount == currentCount) {
-              maxCount++;
-              currentCount++;
-          } else {
-              currentCount++;
-          }
+    // if the current value is (
+    if (s[i] == '(') {
+      // if maxcount is currentcount
+      if (maxCount == currentCount) {
+        // increment maxcount
+        maxCount++;
+        // increment currentcount
+        currentCount++;
+      } else {
+        // increment currentcount
+        currentCount++;
       }
-      if (s[i] == ')') {
-          currentCount--;
-      }
+    }
+    // if current string index is )
+    if (s[i] == ')') {
+      // decrement currentcount
+      currentCount--;
+    }
   }
+  // return maxCount
   return maxCount
 };
