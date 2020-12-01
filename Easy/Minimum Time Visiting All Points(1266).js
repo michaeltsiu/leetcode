@@ -35,15 +35,19 @@
 //  * @return {number}
 //  */
 let minTimeToVisitAllPoints = function(points) {
-  let index = 0;
+  // create variables to hold the result
   let result = 0;
 
-  while (index < points.length - 1) {
-    let x = Math.abs(points[index][0] - points[index+1][0]);
-    let y = Math.abs(points[index][1] - points[index+1][1]);
-    result = result + Math.max(x, y);
-    index++
+  // iterate over the points array, skipping the last
+  for (let i = 0; i < points.length-1; i++) {
+     // create a variable to see the difference between first and second point for X axis
+     let x = Math.abs(points[i][0] - points[i+1][0]);
+     // create a variable to see the difference between first and second point for Y axis
+     let y = Math.abs(points[i][1] - points[i+1][1]);
+     // add to the result the higher number between X and Y
+     result += Math.max(x, y);
   }
 
+  // return the result
   return result;
 };
