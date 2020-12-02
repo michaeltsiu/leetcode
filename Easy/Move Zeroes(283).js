@@ -16,16 +16,27 @@
 //  * @return {void} Do not return anything, modify nums in-place instead.
 //  */
 var moveZeroes = function(nums) {
+  // create variable to contain how many 0's are in the nums array
   let zeroes = 0;
+  // iterate over the nums array
   for (let i = 0; i < nums.length; i++) {
+    // if the current value is a 0
       if (nums[i] == 0) {
-          nums.splice(i, 1);
-          i--;
-          zeroes++;
+        // remove the 0
+        nums.splice(i, 1);
+        // decrement the index
+        i--;
+        // increase zeroes
+        zeroes++;
       }
   }
+  // while there zero isnt 0
   while (zeroes) {
-      nums.push(0)
-      zeroes--;
+    // push a 0 into the nums array
+    nums.push(0)
+    // decremeny zero
+    zeroes--;
   }
+  // return the nums array
+  return nums
 };
