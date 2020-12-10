@@ -49,12 +49,15 @@
 //  */
 
 var getDecimalValue = function(head) {
+  // create a variable to hold binary numbers
   let binary = "";
-
+  // while head is present
   while (head) {
+    // add current val of head to the binary variable
     binary += head.val;
+    // set head to be the next head
     head = head.next;
   };
-
+  // return the number converted with parseint
   return parseInt(binary, 2);
 };
