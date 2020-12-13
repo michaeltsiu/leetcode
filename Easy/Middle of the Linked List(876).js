@@ -36,10 +36,17 @@
 //  * @return {ListNode}
 //  */
 var middleNode = function(head) {
+  // create a slow and fast variable that both start at head
   let slow = head, fast = head;
+  // while fast and next of fast is not null
   while (fast !== null && fast.next !== null) {
+    // set slow to be next
     slow = slow.next;
+    // set fast to be 2x next;
     fast = fast.next.next;
   }
+  // return slow
   return slow;
 }
+
+// as since fast is moving at twice the rate of slow, slow will always be at the midpoint
