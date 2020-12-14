@@ -37,11 +37,16 @@
 //  * @return {number}
 //  */
 var minDepth = function(root) {
+  // if the root is null, return 0
   if (root === null) return 0;
+  // using recursion, create a variable with left and right that takes either root left or root right
   let left = minDepth(root.left);
   let right = minDepth(root.right);
+  // if the tree is skewed, checking if left is 0 or right is 0 (not both)
   if (left === 0 || right === 0) {
+    // return the higher of left or right + 1
     return Math.max(left, right) + 1;
   }
+  // return the minimum between left and right + 1
   return Math.min(left, right) + 1
 };
