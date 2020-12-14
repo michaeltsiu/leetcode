@@ -39,39 +39,71 @@
 //  * @return {ListNode}
 //  */
 var sortList = function(head) {
-  if (head === null || head.next === null) return head;
+  // if the head or the next head is null
+  if (head === null || head.next === null) {
+    // return the head
+    return head;
+  }
+  // create a temp, slow and fast variable to all be equal to head
   let temp = head, slow = head, fast = head;
+  // split the linkedlist in half by checking if fast and fast.next is not null
   if (fast !== null && fast.next !== null) {
+    // set temp to be slow
     temp = slow;
+    // set slow to be next of slow
     slow = slow.next;
+    // set fast to be 2x next of fast
     fast = fast.next.next;
   }
+  // set the next temp to be null
   temp.next = null;
+  // create leftside for recursion with sortList taking head
   let leftSide = sortList(head);
+  // create rightside for recursion with sortList taking slow
   let rightSide = sortList(slow);
-  return merge(leftSide, rightSide);
+  // return our mergesort function with leftside and right side
+  return mergeSort(leftSide, rightSide);
 }
 
-let merge = (left, right) => {
+// create a helper function for merge sort with left and right parameters
+let mergeSort = (left, right) => {
+  // create a temp variable to be our new node
   let temp = new ListNode(0);
-  let current = temp;
+  // create a current variable to be equal to temp
+  let curr = temp;
+  // while left and right are not null
   while (left !== null && right !== null) {
+    // if left's val is less than right's val
     if (left.val < right.val) {
-      current.next = left;
+      // set current's next to be left
+      curr.next = left;
+      // set left to be the next left
       left = left.next;
-    } else {
-      current.next = right;
+    }
+    // else
+    else {
+      // set current's next to be right
+      curr.next = right;
+      // set right to be the next right
       right = right.next;
     }
-    current = current.next;
+    // set current to be current's next
+    curr = curr.next;
   }
+  // check if left isn't null
   if (left !== null) {
-    current.next = left;
+    // set current's next to be left
+    curr.next = left;
+    // set left to be the next left
     left = left.next;
   }
+  // check if right isn't null
   if (right !== null) {
-    current.next = right;
+    // set current's next to be right
+    curr.next = right;
+    // set right to be the next right
     right = right.next;
   }
+  // return the temp's next
   return temp.next;
 }
