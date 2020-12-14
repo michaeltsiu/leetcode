@@ -31,18 +31,30 @@
 //  * @return {number}
 //  */
 var jump = function(nums) {
+  // if nums length is less than or equal to 1 return 0;
+  if (nums.length <= 1) return 0;
+  // create 3 helping variables, 1. pointer set to 0, 2. reach set to pointer + nums at reach, 3. jumps set to 1;
   let pointer = 0, reach = pointer + nums[pointer], jumps = 1;
+  // iterate over the nums array
   for (let i = 0; i < nums.length; i++) {
+    // if the reach is less than the index
     if (reach < i) {
+      // iterate over i with j starting at the pointer
       for (let j = pointer; j < i; j++) {
+        // create a new helping var named newreach set to j + nums at j
         let newReach = j + nums[j];
+        // if newreach is greater than reach
         if (newReach > reach) {
+          // set reach to be newreach
           reach = newReach;
+          // set pointer to be j
           pointer = j;
         }
       }
+      // increase jumps
       jumps++;
     }
   }
+  // return jumps
   return jumps;
 };
