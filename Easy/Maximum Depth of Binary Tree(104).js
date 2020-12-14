@@ -50,8 +50,11 @@
 //  * @return {number}
 //  */
 var maxDepth = function(root) {
+  // if the root is null, return 0
   if (root === null) return 0;
+  // recursive for left and right
   let left = maxDepth(root.left);
   let right = maxDepth(root.right);
+  // return either max of left or right adding 1 for each level gone down
   return Math.max(left, right) + 1;
 };
