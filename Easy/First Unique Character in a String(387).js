@@ -3,24 +3,18 @@
 //  * @return {number}
 //  */
 var firstUniqChar = function(s) {
-  // create a container to hold the characters
-  let container = {};
-  // iterate over the string
-  for (let i = 0; i < s.length; i++) {
-      // if container contains string at index, increment
-      if (container[s[i]]) {
-          container[s[i]]++;
-          // else add to container
-      } else {
-          container[s[i]] = 1
-      }
+  // create a letter obj to hold characters
+  let letters = {};
+  // iterate over s
+  for (let char of s) {
+      // set letter at curr val to be letter at curr val or 0 + 1
+      letters[char] = (letters[char] || 0) + 1;
   }
-  // iterate over the container, if container value is 1, return string at index of that key
-  for (let i in container) {
-      if (container[i] == 1) {
-          return s.indexOf(i)
-      }
+  // iterate over letter obj
+  for (let char in letters) {
+      // if the val is 1, return s at index of the char
+      if (letters[char] === 1) return s.indexOf(char);
   }
-  // return -1 if no conditions are met
-  return -1
+  // return -1 if not found
+  return -1;
 };
