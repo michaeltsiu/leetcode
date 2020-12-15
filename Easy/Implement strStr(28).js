@@ -37,16 +37,10 @@
 //  * @return {number}
 //  */
 var strStr = function(haystack, needle) {
-  // if length of haystack and needle are 0, return 0
-  if (haystack.length && needle.length === 0) {
-      return 0
-  }
-  // if the haystack has needle
-  if (haystack.includes(needle)) {
-    // return the index where needle is found
-      return haystack.indexOf(needle)
-  } else {
-    // return -1 if not found
-      return -1
-  }
+  // check if needle's length is 0, return 0
+  if (needle.length === 0) return 0
+  // if haystack includes needle, return the index of needle at haystack
+  if (haystack.includes(needle)) return haystack.indexOf(needle);
+  // return -1 if not found
+  return -1;
 };
