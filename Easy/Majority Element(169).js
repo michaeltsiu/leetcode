@@ -19,24 +19,20 @@
 //  */
 
 var majorityElement = function(nums) {
-  // create a empty object variable to keep track of what appears the most
-  let container = {};
-  // create a variable to keep track of the majority
-  let majority = 0;
-  // create a variable to keep track of the max
-  let max = 0;
-  // iterate over the nums array
-  for (let i = 0; i < nums.length; i++) {
-    // if the container obj contains the current index, set it to one, else increase the key
-    container[nums[i]] ? container[nums[i]]++ : container[nums[i]] = 1
-    // if the current index of num in container is greater than max
-    if (container[nums[i]] > max) {
-      // set the max to be the container's value
-      max = container[nums[i]];
-      // set the majority to be the key
-      majority = nums[i];
-    }
+  // create container set to empty obj, majority set to 0, occurance set to 0
+  let container = {}, majority = 0, occurance = 0;
+  // iterate over nums arr
+  for (let num of nums) {
+      // if container at curr val is valid, increment it, else set to 1
+      container[num] ? container[num]++ : container[num] = 1
+      // if container at curr val is greater than occurance
+      if (container[num] > occurance) {
+          // set occurance to be container at curr val
+          occurance = container[num];
+          // set majority to be curr val
+          majority = num;
+      }
   }
-  // return the majority
+  // return majority
   return majority;
 };
