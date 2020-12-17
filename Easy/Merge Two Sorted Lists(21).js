@@ -35,21 +35,32 @@
 //  */
 
 var mergeTwoLists = function(l1, l2) {
+  // create a new node to start the list
   let list = new ListNode();
+  // set the head to be the list
   let head = list;
-
+  // while there are nodes in both left and right
   while (l1 && l2) {
+    // if the val of the first list is less than the second
     if (l1.val < l2.val) {
+      // set the list's next node to be the val of list one
       list.next = new ListNode(l1.val);
+      // set lists curr node of list 1 to be the next
       l1 = l1.next;
+      // else
     } else {
+      // set the list's next node to be the val of list two
       list.next = new ListNode(l2.val);
+      // set lists curr node of list 2 to be the next
       l2 = l2.next;
     }
+    // set the current node of list to be the next
     list = list.next;
   }
-
+  // if theres a node in first list, set the next list's node to be the first list
   if (l1) list.next = l1;
+  // if theres a node in the second list, set the next list's node to be the second list
   if (l2) list.next = l2;
+  // return the head's next
   return head.next;
 };
