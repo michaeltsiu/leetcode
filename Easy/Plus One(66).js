@@ -34,22 +34,36 @@
 //  * @return {number[]}
 //  */
 var plusOne = function(digits) {
+  // create a popped variable that takes the last digit
   let popped = digits.pop()
+  // add to the end popped + 1
   digits.push(popped + 1)
+  // create a remainder set to 0
   let remainder = 0
+  // iterate over the length by the end
   for (let i = digits.length - 1; i >= 0; i--) {
+    // if remainder isn't 0
     if (remainder) {
+      // add to digits at the current index the remainder
       digits[i]+= remainder
+      // set the remainder to be 0
       remainder = 0
     }
+    // create a string var set to the current val of digits
     let stringify = digits[i].toString()
+    // check if the string's length is greather than 1
     if (stringify.length > 1) {
+      // set the remainder to be the current number
       remainder = Number(stringify[0]);
+      // splice digits at the current index, and add stringify's 2nd digit
       digits.splice(i, 1, stringify[1]);
     }
+    // if the current index is 0 and remainder isn't 0
     if (i == 0 && remainder !== 0) {
+      // add the remainder to digits
       digits.unshift(remainder)
     }
   }
+  // return digits
   return digits
 };
