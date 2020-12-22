@@ -22,14 +22,12 @@
 // The final answer is guaranteed to be less than 2^31.
 
 var rangeSumBST = function(root, L, R) {
-  if(root == null) {
-      return 0
-  }
-  if(root.val < L) {
-      return rangeSumBST(root.right, L, R)
-  } else if(root.val > R) {
-      return rangeSumBST(root.left, L, R)
-  } else {
-      return root.val + rangeSumBST(root.left, L, R) + rangeSumBST(root.right, L, R);
-  }
+  // if the current node is null, return 0
+  if(root == null) return 0
+  // if the current node is less than left, recursion over the right node
+  if(root.val < L) return rangeSumBST(root.right, L, R)
+  // if the current node is greater than right node, recursion over the left node
+  else if(root.val > R) return rangeSumBST(root.left, L, R)
+  // now we have met in the middle, add all values up
+  else return root.val + rangeSumBST(root.left, L, R) + rangeSumBST(root.right, L, R);
 };
