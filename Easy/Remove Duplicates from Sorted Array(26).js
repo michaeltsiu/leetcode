@@ -40,15 +40,20 @@
 //  * @return {number}
 //  */
 var removeDuplicates = function(nums) {
-  if (nums.length === 0) {
-      return 0;
-  }
+  // if the length of nums array is 0, return 0
+  if (nums.length === 0) return 0;
+  // create pointer variable set to 0
   let pointer = 0;
-  for (let i = 1; i < nums.length; i++) {
-      if (nums[pointer] !== nums[i]) {
-          pointer++;
-          nums[pointer] = nums[i]
-      }
+  // iterate over the nums array
+  for (let num of nums) {
+    // if nums at pointer isn't the current number
+    if (nums[pointer] !== num) {
+      // increment pointer
+        pointer++;
+      // set the val of nums at pointer to be the current val
+      nums[pointer] = num
+    }
   }
+  // return the pointer + 1
   return pointer + 1;
 };
